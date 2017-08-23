@@ -31,12 +31,12 @@ URL | Method | URL Params(Required)
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Company doesn't exist" }`
+    **Content:** `{ "status":"error","code":404,"message":"Company doesn't exist" }`
 -----------------------
 
 **Show 2 People & Their Shared Friends**
 ----
-  Giving 2 people's indexes, it will return JSON data about their information (Name, Age, Address, Phone) and the list of their friends in common which have brown eyes and are still alive.
+  Giving 2 people's indexes, it will return JSON data about their information (Name, Age, Address, Phone) and the list of their friends in common which have *brown eyes* and are *still alive*.
 
 URL | Method | Data Params(Required)
 --- | ------ | --------------------
@@ -77,7 +77,7 @@ URL | Method | Data Params(Required)
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Person doesn't exist" }`
+    **Content:** `{ "status":"error","code":404,"message":"Person doesn't exist or missing indexes" }`
 
 -----------------------
 
@@ -109,4 +109,4 @@ URL | Method | URL Params(Required)
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Person doesn't exist" }`
+    **Content:** `{ "status":"error","code":404,"message":"Person doesn't exist" }`
