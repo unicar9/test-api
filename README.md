@@ -1,3 +1,21 @@
+**Build and Run**
+----
+Download this file and run following commands in the terminal from the directory of this file.
+
+```bash
+gem install rails
+
+bundle install
+
+rails db:drop
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+run `rails s` to start the server check out the results on `localhost:3000/`
+
+
 **Show Employees**
 ----
   Giving a company name(case insensitive) as a URL param and it will return JSON data about all the employees.

@@ -55,7 +55,6 @@ class ParanuaraController < ApplicationController
       render :json => {status: "error", code: 404, message: "Person doesn't exist"}
     end
 
-
   end
 
 end
