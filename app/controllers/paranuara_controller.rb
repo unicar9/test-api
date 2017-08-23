@@ -9,7 +9,7 @@ class ParanuaraController < ApplicationController
         employees: @employees.as_json(:only => [:name, :age])
         }
     else
-      render :json => {status: "error", code: 404, message: "Company doesn't exist"}
+      render :json => {status: "error", code: 404, message: "Company doesn't exist"}, :status => 404
     end
 
 
@@ -32,7 +32,7 @@ class ParanuaraController < ApplicationController
         common_friends: common_friends.as_json(:only => [:index, :name, :age, :address, :phone, :eyeColor, :has_died])
        }
     else
-      render :json => {status: "error", code: 404, message: "Person doesn't exist or missing indexes"}
+      render :json => {status: "error", code: 404, message: "Person doesn't exist or missing indexes"}, :status => 404
     end
 
 
@@ -52,7 +52,7 @@ class ParanuaraController < ApplicationController
         vegetables: foods['vegetables'].nil? ? [] : foods['vegetables'].pluck('name')
       }
     else
-      render :json => {status: "error", code: 404, message: "Person doesn't exist"}
+      render :json => {status: "error", code: 404, message: "Person doesn't exist"}, :status => 404
     end
 
   end
