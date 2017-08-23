@@ -13,7 +13,7 @@ rails db:migrate
 rails db:seed
 ```
 
-run `rails s` to start the server check out the results on `localhost:3000/`
+run `rails s` to start a server and check out the results on `localhost:3000/`
 
 
 **Show Employees**
