@@ -1,9 +1,12 @@
 class ParanuaraController < ApplicationController
   def company
-    company = Company.find_by(name: params["name"].upcase)
+    company = Company.find_by(company: params["name"].upcase)
     @employees = company.people
 
-    render :json => @employees.as_json(:only => [:name, :age])
+    render :json => {
+      number_of_employees: @employees.length,
+      employees: @employees.as_json(:only => [:name, :age])
+      }
   end
 
   def people

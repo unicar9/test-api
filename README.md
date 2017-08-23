@@ -1,24 +1,112 @@
-# README
+**Show Employees**
+----
+  Giving a company name(case insensitive) as a URL param and it will return JSON data about all the employees.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+URL | Method | URL Params(Required)
+--- | ------ | --------------------
+/company/:name | `GET` |  `company=[name]`
 
-Things you may want to cover:
+* **Sample Response:**
 
-* Ruby version
+```javascript
+{
+  "number_of_employees": 3,
+  "employees": [
+    {
+        "name": "Darlene Jones",
+        "age": 57
+    },
+    {
+        "name": "Booth Haynes",
+        "age": 46
+    },
+    {
+        "name": "Lakeisha Noel",
+        "age": 42
+    },
+  ]
+}
+```
 
-* System dependencies
+* **Error Response:**
 
-* Configuration
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "Company doesn't exist" }`
+-----------------------
 
-* Database creation
+**Show 2 People & Their Shared Friends**
+----
+  Giving 2 people's indexes, it will return JSON data about their information (Name, Age, Address, Phone) and the list of their friends in common which have brown eyes and are still alive.
 
-* Database initialization
+URL | Method | Data Params(Required)
+--- | ------ | --------------------
+/people | `GET` |  `?index1=[integer]&index2=[integer]`
 
-* How to run the test suite
+* **Sample Response:**
 
-* Services (job queues, cache servers, search engines, etc.)
+```javascript
+{
+  "person1": {
+      "name": "Bonnie Bass",
+      "age": 54,
+      "index": 2,
+      "phone": "+1 (823) 428-3710",
+      "address": "455 Dictum Court, Nadine, Mississippi, 6499"
+  },
+  "person2": {
+      "name": "Cote Booth",
+      "age": 26,
+      "index": 6,
+      "phone": "+1 (842) 598-3525",
+      "address": "394 Loring Avenue, Salvo, Maryland, 9396"
+  },
+  "common_friends": [
+      {
+          "name": "Decker Mckenzie",
+          "age": 60,
+          "index": 1,
+          "has_died": false,
+          "eyeColor": "brown",
+          "phone": "+1 (893) 587-3311",
+          "address": "492 Stockton Street, Lawrence, Guam, 4854"
+      }
+  ]
+}
+```
 
-* Deployment instructions
+* **Error Response:**
 
-* ...
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "Person doesn't exist" }`
+
+-----------------------
+
+**Show Person**
+----
+  Giving 1 person's index, it will return JSON data about his/her personal info(name and age) and a list of fruits and vegetables this person likes.
+
+URL | Method | URL Params(Required)
+--- | ------ | --------------------
+/person/:index | `GET` |  `index=[integer]`
+
+* **Sample Response:**
+
+```javascript
+{
+  "name": "Bonnie Bass",
+  "age": 54,
+  "fruits": [
+      "orange",
+      "banana",
+      "strawberry"
+  ],
+  "vegetables": [
+      "beetroot"
+  ]
+}
+```
+
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "Person doesn't exist" }`
