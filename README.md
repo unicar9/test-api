@@ -15,6 +15,7 @@ rails db:seed
 
 run `rails s` to start a server and check out the results on `localhost:3000/`
 
+-----------------------
 
 **Show Employees**
 ----
@@ -50,6 +51,7 @@ URL | Method | URL Params(Required)
 
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ "status":"error","code":404,"message":"Company doesn't exist" }`
+    
 -----------------------
 
 **Show 2 People & Their Shared Friends**
