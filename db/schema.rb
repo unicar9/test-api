@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822082801) do
+ActiveRecord::Schema.define(version: 20170824003903) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "company"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20170822082801) do
     t.integer "person_id"
   end
 
+  create_table "friends", force: :cascade do |t|
+    t.integer "person_id"
+    t.integer "friend_id"
+    t.index ["friend_id", "person_id"], name: "index_friends_on_friend_id_and_person_id", unique: true
+    t.index ["person_id", "friend_id"], name: "index_friends_on_person_id_and_friend_id", unique: true
+  end
+
   create_table "people", force: :cascade do |t|
     t.string   "name"
     t.integer  "age"
@@ -48,7 +55,6 @@ ActiveRecord::Schema.define(version: 20170822082801) do
     t.string   "registered"
     t.string   "balance"
     t.string   "picture"
-    t.string   "friends"
     t.integer  "company_index"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

@@ -17,7 +17,6 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :registered
       t.string :balance
       t.string :picture
-      t.string :friends
       t.integer :company_index
 
       t.timestamps

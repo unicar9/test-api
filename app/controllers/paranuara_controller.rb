@@ -20,11 +20,10 @@ class ParanuaraController < ApplicationController
     person1 = Person.find_by(index:params['index1'])
     person2 = Person.find_by(index:params['index2'])
 
-    if person1 && person2
+    if person1 && person2 # if person1 and person2 exist
 
-      common_indexes = eval(person1.friends).map!{|f| f["index"]} & eval(person2.friends).map!{|f| f["index"]}
-
-      common_friends = Person.where(index: common_indexes, has_died: false, eyeColor: "brown")
+      # find their common friends with eyecolor = 'brown' and still living
+      common_friends = person1.friends & person2.friends.where(has_died: false, eyeColor: "brown")
 
       render :json => {
         person1: person1.as_json(:only => [:index, :name, :age, :address, :phone]),
